@@ -32,16 +32,14 @@ const elementDisplayBlock = (id) => {
 };
 
 // show Books data in display
-
 const displayBookData = (books) => {
-  //   console.log(books);
   const booksContainer = document.getElementById("books-container");
   booksContainer.textContent = "";
 
   // validate total results
   const totalContainer = document.getElementById("total-result-container");
   if (books.docs.length > 0) {
-    totalContainer.classList.remove("d-none");
+    totalContainer.classList.remove("d-none", "text-center", "text-danger");
     totalContainer.innerText = `About ${books.numFound} results (0.46 seconds)`;
     // use ForEach Method for traverse every single element
     const booksData = books.docs;

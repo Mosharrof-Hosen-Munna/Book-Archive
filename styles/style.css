@@ -1,0 +1,8 @@
+/* google font link */
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+/* main styles start */
+body {
+  background-color: #f0f2f5;
+  font-family: "Oxygen", sans-serif;
+}

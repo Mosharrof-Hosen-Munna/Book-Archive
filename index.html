@@ -36,10 +36,16 @@
                <div class="container">
                     <div class="row">
                          <div class="col">
-                              <h4>About <span id="total-results">00</span> results (0.41 seconds)</h4>
+                              <!-- loader -->
+                              <div id="spinner" class="d-none text-center">
+                                   <div class="spinner-grow text-info" style="width:5rem; height: 5rem;" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                   </div>
+                              </div>
+                              <h4 class="d-none" id="total-result-container"></h4>
                          </div>
                     </div>
-                    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3">
+                    <div id="books-container" class="row row-cols-1 row-cols-lg-3 g-4 row-cols-md-3 py-4 ">
 
                     </div>
                </div>

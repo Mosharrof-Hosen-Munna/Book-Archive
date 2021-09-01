@@ -6,3 +6,7 @@ body {
   background-color: #f0f2f5;
   font-family: "Oxygen", sans-serif;
 }
+
+.object-cover {
+  object-fit: cover;
+}

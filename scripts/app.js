@@ -1,3 +1,10 @@
+const inputField = document.getElementById("user-field");
+inputField.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13 || event.key === "Enter") {
+    loadBooksData();
+  }
+});
+
 const loadBooksData = async () => {
   // show spinner and hide elements
   elementDisplayBlock("spinner");
@@ -9,7 +16,7 @@ const loadBooksData = async () => {
   const inputField = document.getElementById("user-field");
   const searchTerm = inputField.value;
   if (searchTerm !== "") {
-    const URL = `http://openlibrary.org/search.json?q=${searchTerm}`;
+    const URL = `https://openlibrary.org/search.json?q=${searchTerm}`;
     const response = await fetch(URL);
     const data = await response.json();
     displayBookData(data);
@@ -26,6 +33,7 @@ const elementDisplayNone = (id) => {
   const spinner = document.getElementById(id);
   spinner.classList.add("d-none");
 };
+
 const elementDisplayBlock = (id) => {
   const spinner = document.getElementById(id);
   spinner.classList.remove("d-none");
@@ -53,6 +61,7 @@ const displayBookData = (books) => {
     errorMessage(`Here No Result Found!`);
   }
 };
+
 // Error Message Handling
 const errorMessage = (errorMsg) => {
   const totalContainer = document.getElementById("total-result-container");
@@ -60,6 +69,7 @@ const errorMessage = (errorMsg) => {
   totalContainer.classList.add("text-center", "text-danger");
   totalContainer.innerText = errorMsg;
 };
+
 // display html render
 const displayHTML = (book) => {
   const {
@@ -73,9 +83,9 @@ const displayHTML = (book) => {
   } = book;
 
   return `
-       <div class="card h-100 shadow border-primary border-bottom border-3 border-0">
+       <div class="card h-100 rounded-3 shadow border-primary border-bottom border-3 border-0">
                                    <img class="object-cover" height="400px" src="https://covers.openlibrary.org/b/id/${
-                                     cover_i !== undefined ? cover_i : 3131381
+                                     cover_i !== undefined ? cover_i : 8310846
                                    }-M.jpg" class="card-img-top"
                                         alt="...">
                                    
@@ -88,8 +98,9 @@ const displayHTML = (book) => {
                                                book.hasOwnProperty(
                                                  "author_name"
                                                )
-                                                 ? author_name?.join(", ")
-                                                 : author_alternative_name
+                                                 ? author_name[0]
+                                                 : author_alternative_name ||
+                                                   "N/A"
                                              }</li>
                                              <li class="list-group-item"><span class="text-success">First Published:</span> ${
                                                first_publish_year

@@ -17,10 +17,11 @@
      <!-- Header part start  -->
      <header class="pt-4">
           <div class="container">
+               <h1 class="text-success text-center fw-bold">Search Your Favorite Books</h1>
                <div class="row">
                     <div class="col-8 mx-auto">
                          <div class="input-group mb-3">
-                              <input id="user-field" type="text" class="form-control"
+                              <input id="user-field" type="text" class="form-control fw-bold"
                                    placeholder="Search Your Favorite Books" aria-label="Recipient's username"
                                    aria-describedby="button-addon2">
                               <button onclick="loadBooksData()" class="btn btn-primary" type="button">Search</button>
@@ -42,7 +43,7 @@
                                         <span class="visually-hidden">Loading...</span>
                                    </div>
                               </div>
-                              <h4 class="d-none" id="total-result-container"></h4>
+                              <h4 class="d-none fw-bold" id="total-result-container"></h4>
                          </div>
                     </div>
                     <div id="books-container" class="row row-cols-1 row-cols-lg-3 g-4 row-cols-md-3 py-4 ">
